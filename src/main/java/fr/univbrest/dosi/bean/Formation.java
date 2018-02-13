@@ -41,14 +41,12 @@ public class Formation implements Serializable {
 	public Formation() {
 	}
 	
-	public Formation(String codeFormation, Date debutAccreditation, String diplome, String doubleDiplome,
-			Date finAccreditation, BigDecimal n0Annee, String nomFormation) {
+	public Formation(String codeFormation, String diplome, String doubleDiplome,
+			BigDecimal n0Annee, String nomFormation) {
 		super();
 		this.codeFormation = codeFormation;
-		this.debutAccreditation = debutAccreditation;
 		this.diplome = diplome;
 		this.doubleDiplome = doubleDiplome;
-		this.finAccreditation = finAccreditation;
 		this.n0Annee = n0Annee;
 		this.nomFormation = nomFormation;
 	}

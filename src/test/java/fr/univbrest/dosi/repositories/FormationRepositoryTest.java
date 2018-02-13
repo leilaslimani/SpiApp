@@ -25,8 +25,8 @@ public class FormationRepositoryTest {
 	
 	@Before
 	public void setup() {
-		Formation formation1 = new Formation("33", null, "M2", "O", new Date(), BigDecimal.valueOf(2.0), "DOSI");
-		Formation formation2 = new Formation("29", new Date(), "L1", "O", new Date(), BigDecimal.valueOf(2.0), "ITIL");
+		Formation formation1 = new Formation("33", "M2", "O", BigDecimal.valueOf(2.0), "DOSI");
+		Formation formation2 = new Formation("29", "L1", "O", BigDecimal.valueOf(2.0), "ITIL");
 	
 		formationRepo.save(formation1);
 		formationRepo.save(formation2);
