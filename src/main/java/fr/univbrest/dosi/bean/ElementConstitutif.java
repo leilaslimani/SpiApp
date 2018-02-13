@@ -39,8 +39,8 @@ public class ElementConstitutif implements Serializable {
 	//bi-directional many-to-one association to UniteEnseignement
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION"),
-		@JoinColumn(name="CODE_UE", referencedColumnName="CODE_UE")
+		@JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION", insertable=false, updatable=false),
+		@JoinColumn(name="CODE_UE", referencedColumnName="CODE_UE", insertable=false, updatable=false)
 		})
 	private UniteEnseignement uniteEnseignement;
 
