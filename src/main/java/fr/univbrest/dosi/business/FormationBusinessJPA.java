@@ -1,6 +1,7 @@
 package fr.univbrest.dosi.business;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,6 +27,11 @@ public class FormationBusinessJPA implements FormationBusiness {
 		}
 				
 		return repos.save(formationACreer);
+	}
+	
+	@Override
+	public List<Formation> rechercherFormationParNom(String nom) {
+		return repos.findByNomFormation(nom);
 	}
 
 }
