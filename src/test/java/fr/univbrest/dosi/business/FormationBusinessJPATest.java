@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
@@ -12,6 +13,7 @@ import com.google.common.collect.Lists;
 
 import fr.univbrest.dosi.bean.Formation;
 import fr.univbrest.dosi.repositories.FormationRepository;
+import fr.univbrest.dosi.util.CatalogueRecherche;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.tuple;
@@ -133,8 +135,9 @@ public class FormationBusinessJPATest {
 
 		@Override
 		public List<Formation> findByNomFormation(String nomFormation) {
+
 			return data.stream()
-					.filter(formation -> formation.getNomFormation().equalsIgnoreCase(nomFormation))
+					.filter(CatalogueRecherche.parNomFormation(nomFormation))
 					.collect(Collectors.toList());
 		}}
 

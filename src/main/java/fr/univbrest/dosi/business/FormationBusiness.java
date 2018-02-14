@@ -10,4 +10,8 @@ public interface FormationBusiness {
 
 	List<Formation> rechercherFormationParNom(String nom);
 
+	List<Formation> recupererToutesLesFormations();
+
+	Formation rechercherFormationParId(String id);
+
 }

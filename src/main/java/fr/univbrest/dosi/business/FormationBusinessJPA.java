@@ -5,11 +5,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import fr.univbrest.dosi.bean.Formation;
 import fr.univbrest.dosi.repositories.FormationRepository;
 
-@Component
+@Service
 public class FormationBusinessJPA implements FormationBusiness {
 
 	private FormationRepository repos;
@@ -32,6 +33,16 @@ public class FormationBusinessJPA implements FormationBusiness {
 	@Override
 	public List<Formation> rechercherFormationParNom(String nom) {
 		return repos.findByNomFormation(nom);
+	}
+
+	@Override
+	public List<Formation> recupererToutesLesFormations() {
+		return (List<Formation>) repos.findAll();
+	}
+
+	@Override
+	public Formation rechercherFormationParId(String id) {
+		return repos.findOne(id);
 	}
 
 }
