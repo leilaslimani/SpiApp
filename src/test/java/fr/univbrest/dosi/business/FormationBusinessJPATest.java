@@ -135,7 +135,6 @@ public class FormationBusinessJPATest {
 		public List<Formation> findByNomFormation(String nomFormation) {
 			return data.stream()
 					.filter(formation -> formation.getNomFormation().equalsIgnoreCase(nomFormation))
-					.filter(predicate)
 					.collect(Collectors.toList());
 		}}
 
