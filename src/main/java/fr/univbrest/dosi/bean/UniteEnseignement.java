@@ -3,7 +3,6 @@ package fr.univbrest.dosi.bean;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
 
 
 /**
@@ -32,16 +31,10 @@ public class UniteEnseignement implements Serializable {
 	@Column(name="NBH_TP")
 	private BigDecimal nbhTp;
 
+	@Column(name="NO_ENSEIGNANT")
+	private BigDecimal noEnseignant;
+
 	private String semestre;
-
-	//bi-directional many-to-one association to ElementConstitutif
-	@OneToMany(mappedBy="uniteEnseignement")
-	private List<ElementConstitutif> elementConstitutifs;
-
-	//bi-directional many-to-one association to Enseignant
-	@ManyToOne
-	@JoinColumn(name="NO_ENSEIGNANT")
-	private Enseignant enseignant;
 
 	public UniteEnseignement() {
 	}
@@ -94,42 +87,20 @@ public class UniteEnseignement implements Serializable {
 		this.nbhTp = nbhTp;
 	}
 
+	public BigDecimal getNoEnseignant() {
+		return this.noEnseignant;
+	}
+
+	public void setNoEnseignant(BigDecimal noEnseignant) {
+		this.noEnseignant = noEnseignant;
+	}
+
 	public String getSemestre() {
 		return this.semestre;
 	}
 
 	public void setSemestre(String semestre) {
 		this.semestre = semestre;
-	}
-
-	public List<ElementConstitutif> getElementConstitutifs() {
-		return this.elementConstitutifs;
-	}
-
-	public void setElementConstitutifs(List<ElementConstitutif> elementConstitutifs) {
-		this.elementConstitutifs = elementConstitutifs;
-	}
-
-	public ElementConstitutif addElementConstitutif(ElementConstitutif elementConstitutif) {
-		getElementConstitutifs().add(elementConstitutif);
-		elementConstitutif.setUniteEnseignement(this);
-
-		return elementConstitutif;
-	}
-
-	public ElementConstitutif removeElementConstitutif(ElementConstitutif elementConstitutif) {
-		getElementConstitutifs().remove(elementConstitutif);
-		elementConstitutif.setUniteEnseignement(null);
-
-		return elementConstitutif;
-	}
-
-	public Enseignant getEnseignant() {
-		return this.enseignant;
-	}
-
-	public void setEnseignant(Enseignant enseignant) {
-		this.enseignant = enseignant;
 	}
 
 }

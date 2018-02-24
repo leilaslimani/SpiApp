@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -39,26 +38,23 @@ public class Promotion implements Serializable {
 	@Column(name="NB_MAX_ETUDIANT")
 	private BigDecimal nbMaxEtudiant;
 
+	@Column(name="NO_ENSEIGNANT")
+	private BigDecimal noEnseignant;
+
 	@Column(name="PROCESSUS_STAGE")
 	private String processusStage;
 
 	@Column(name="SIGLE_PROMOTION")
 	private String siglePromotion;
 
-	//bi-directional many-to-one association to Candidat
-	@OneToMany(mappedBy="promotion")
-	private List<Candidat> candidats;
-
-	//bi-directional many-to-one association to Etudiant
-	@OneToMany(mappedBy="promotion")
-	private List<Etudiant> etudiants;
-
-	//bi-directional many-to-one association to Enseignant
-	@ManyToOne
-	@JoinColumn(name="NO_ENSEIGNANT")
-	private Enseignant enseignant;
-
 	public Promotion() {
+	}
+
+	public Promotion(PromotionPK id, String processusStage, String siglePromotion) {
+		super();
+		this.id = id;
+		this.processusStage = processusStage;
+		this.siglePromotion = siglePromotion;
 	}
 
 	public PromotionPK getId() {
@@ -117,6 +113,14 @@ public class Promotion implements Serializable {
 		this.nbMaxEtudiant = nbMaxEtudiant;
 	}
 
+	public BigDecimal getNoEnseignant() {
+		return this.noEnseignant;
+	}
+
+	public void setNoEnseignant(BigDecimal noEnseignant) {
+		this.noEnseignant = noEnseignant;
+	}
+
 	public String getProcessusStage() {
 		return this.processusStage;
 	}
@@ -131,58 +135,6 @@ public class Promotion implements Serializable {
 
 	public void setSiglePromotion(String siglePromotion) {
 		this.siglePromotion = siglePromotion;
-	}
-
-	public List<Candidat> getCandidats() {
-		return this.candidats;
-	}
-
-	public void setCandidats(List<Candidat> candidats) {
-		this.candidats = candidats;
-	}
-
-	public Candidat addCandidat(Candidat candidat) {
-		getCandidats().add(candidat);
-		candidat.setPromotion(this);
-
-		return candidat;
-	}
-
-	public Candidat removeCandidat(Candidat candidat) {
-		getCandidats().remove(candidat);
-		candidat.setPromotion(null);
-
-		return candidat;
-	}
-
-	public List<Etudiant> getEtudiants() {
-		return this.etudiants;
-	}
-
-	public void setEtudiants(List<Etudiant> etudiants) {
-		this.etudiants = etudiants;
-	}
-
-	public Etudiant addEtudiant(Etudiant etudiant) {
-		getEtudiants().add(etudiant);
-		etudiant.setPromotion(this);
-
-		return etudiant;
-	}
-
-	public Etudiant removeEtudiant(Etudiant etudiant) {
-		getEtudiants().remove(etudiant);
-		etudiant.setPromotion(null);
-
-		return etudiant;
-	}
-
-	public Enseignant getEnseignant() {
-		return this.enseignant;
-	}
-
-	public void setEnseignant(Enseignant enseignant) {
-		this.enseignant = enseignant;
 	}
 
 }

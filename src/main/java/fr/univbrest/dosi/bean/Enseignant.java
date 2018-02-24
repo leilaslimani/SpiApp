@@ -2,7 +2,6 @@ package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -19,6 +18,15 @@ public class Enseignant implements Serializable {
 	private long noEnseignant;
 
 	private String adresse;
+
+	public Enseignant(long noEnseignant, String nom, String prenom, String type,String emailPerso) {
+		super();
+		this.noEnseignant = noEnseignant;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.type = type;
+		this.emailPerso=emailPerso;
+	}
 
 	@Column(name="CODE_POSTAL")
 	private String codePostal;
@@ -41,22 +49,10 @@ public class Enseignant implements Serializable {
 
 	private String telephone;
 
-	@Column(name="\"TYPE\"")
+	@Column(name="TYPE")
 	private String type;
 
 	private String ville;
-
-	//bi-directional many-to-one association to ElementConstitutif
-	@OneToMany(mappedBy="enseignant")
-	private List<ElementConstitutif> elementConstitutifs;
-
-	//bi-directional many-to-one association to Promotion
-	@OneToMany(mappedBy="enseignant")
-	private List<Promotion> promotions;
-
-	//bi-directional many-to-one association to UniteEnseignement
-	@OneToMany(mappedBy="enseignant")
-	private List<UniteEnseignement> uniteEnseignements;
 
 	public Enseignant() {
 	}
@@ -163,72 +159,6 @@ public class Enseignant implements Serializable {
 
 	public void setVille(String ville) {
 		this.ville = ville;
-	}
-
-	public List<ElementConstitutif> getElementConstitutifs() {
-		return this.elementConstitutifs;
-	}
-
-	public void setElementConstitutifs(List<ElementConstitutif> elementConstitutifs) {
-		this.elementConstitutifs = elementConstitutifs;
-	}
-
-	public ElementConstitutif addElementConstitutif(ElementConstitutif elementConstitutif) {
-		getElementConstitutifs().add(elementConstitutif);
-		elementConstitutif.setEnseignant(this);
-
-		return elementConstitutif;
-	}
-
-	public ElementConstitutif removeElementConstitutif(ElementConstitutif elementConstitutif) {
-		getElementConstitutifs().remove(elementConstitutif);
-		elementConstitutif.setEnseignant(null);
-
-		return elementConstitutif;
-	}
-
-	public List<Promotion> getPromotions() {
-		return this.promotions;
-	}
-
-	public void setPromotions(List<Promotion> promotions) {
-		this.promotions = promotions;
-	}
-
-	public Promotion addPromotion(Promotion promotion) {
-		getPromotions().add(promotion);
-		promotion.setEnseignant(this);
-
-		return promotion;
-	}
-
-	public Promotion removePromotion(Promotion promotion) {
-		getPromotions().remove(promotion);
-		promotion.setEnseignant(null);
-
-		return promotion;
-	}
-
-	public List<UniteEnseignement> getUniteEnseignements() {
-		return this.uniteEnseignements;
-	}
-
-	public void setUniteEnseignements(List<UniteEnseignement> uniteEnseignements) {
-		this.uniteEnseignements = uniteEnseignements;
-	}
-
-	public UniteEnseignement addUniteEnseignement(UniteEnseignement uniteEnseignement) {
-		getUniteEnseignements().add(uniteEnseignement);
-		uniteEnseignement.setEnseignant(this);
-
-		return uniteEnseignement;
-	}
-
-	public UniteEnseignement removeUniteEnseignement(UniteEnseignement uniteEnseignement) {
-		getUniteEnseignements().remove(uniteEnseignement);
-		uniteEnseignement.setEnseignant(null);
-
-		return uniteEnseignement;
 	}
 
 }

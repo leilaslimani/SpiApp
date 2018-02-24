@@ -45,4 +45,21 @@ public class FormationBusinessJPA implements FormationBusiness {
 		return repos.findOne(id);
 	}
 
+	@Override
+	public void supprimerFormation(Formation c) {
+		repos.delete(c);
+		
+	}
+
+	@Override
+	public long compterformation() {
+		return repos.count();
+	}
+
+	@Override
+	public Formation modifierFormation(Formation f) {
+		Formation p = repos.findOne(f.getCodeFormation());
+		 return repos.save(f);
+	}
+
 }

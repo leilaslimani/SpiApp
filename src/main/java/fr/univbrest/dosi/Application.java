@@ -32,7 +32,7 @@ public class Application extends WebMvcConfigurerAdapter {
           .addResourceLocations("classpath:/META-INF/resources/webjars/");
         
         registry.addResourceHandler("/**")
-        .addResourceLocations("classpath:/client/")
+        .addResourceLocations("classpath:/static/")
         .addResourceLocations("classpath:/.tmp/");
     }    
 

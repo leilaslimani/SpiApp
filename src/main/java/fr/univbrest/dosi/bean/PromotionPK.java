@@ -15,9 +15,14 @@ public class PromotionPK implements Serializable {
 	@Column(name="ANNEE_UNIVERSITAIRE")
 	private String anneeUniversitaire;
 
-	@Column(name="CODE_FORMATION")
+	@Column(name="CODE_FORMATION", insertable=false, updatable=false)
 	private String codeFormation;
 
+	public PromotionPK(String anneeUniversitaire, String codeFormation) {
+		super();
+		this.anneeUniversitaire = anneeUniversitaire;
+		this.codeFormation = codeFormation;
+	}
 	public PromotionPK() {
 	}
 	public String getAnneeUniversitaire() {

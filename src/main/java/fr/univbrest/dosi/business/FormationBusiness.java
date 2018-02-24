@@ -2,6 +2,7 @@ package fr.univbrest.dosi.business;
 
 import java.util.List;
 
+
 import fr.univbrest.dosi.bean.Formation;
 
 public interface FormationBusiness {
@@ -13,5 +14,11 @@ public interface FormationBusiness {
 	List<Formation> recupererToutesLesFormations();
 
 	Formation rechercherFormationParId(String id);
+
+	void supprimerFormation(Formation c);
+
+	long compterformation();
+
+Formation modifierFormation(Formation formationACreer);
 
 }

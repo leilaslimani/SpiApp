@@ -1,0 +1,90 @@
+<div ng-controller="ajouterFormationController">
+
+<br>
+<br><br>
+
+<div class="cards">
+
+<div class="form">
+	
+	<div class="input-group">
+		<label>
+			Code Formation <input type="text" class="form-control" ng-model="codeFormation">
+		</label>
+	</div>
+	<div class="input-group">
+		<label>
+			Formation : <input type="text"  class="form-control" ng-model="nomFormation">
+		</label>
+	</div>
+<fieldset class="form-group">
+   <label for="exampleTextarea">Diplome :</label>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="master" value="L" checked ng-model="diplome">
+      Licence
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="licence" value="M" ng-model="diplome">
+       Master
+      </label>
+    </div>
+     <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="doctorat" value="D" ng-model="diplome">
+       Doctorat
+      </label>
+    </div>
+  </fieldset>
+	<div class="input-group">
+		<label>
+			no Année : 	 
+	   <select class="form-control"  ng-model="noAnnee">
+        <option>1</option>
+        <option>2</option>
+      </select>
+		</label>
+	
+			 		
+<fieldset class="form-group">
+   <label for="exampleTextarea">Douple Diplome :</label>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="oui" value="O" checked ng-model="doubleDiplome">
+        Oui
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="non" value="N" ng-model="doubleDiplome">
+        Non
+      </label>
+    </div>
+  </fieldset>
+
+   
+   
+		</label>
+		</div>
+		
+		
+		<div class="input-group">
+		<label>
+			Fin Accréditation : <input type="date"  class="form-control" ng-model="finAcc">
+		</label>
+	</div>
+		<div class="input-group">
+		<label>
+			Début Accréditation : <input type="date"  class="form-control" ng-model="debutAcc">
+		</label>
+	</div>
+	
+
+		<button ng-click="savedata()" class="btn btn-error btn-lg" >Valider</button>
+		
+</div>	
+
+</div>
+</div>

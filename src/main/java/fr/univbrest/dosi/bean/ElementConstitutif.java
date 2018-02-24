@@ -31,18 +31,8 @@ public class ElementConstitutif implements Serializable {
 	@Column(name="NBH_TP")
 	private BigDecimal nbhTp;
 
-	//bi-directional many-to-one association to Enseignant
-	@ManyToOne
-	@JoinColumn(name="NO_ENSEIGNANT")
-	private Enseignant enseignant;
-
-	//bi-directional many-to-one association to UniteEnseignement
-	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION", insertable=false, updatable=false),
-		@JoinColumn(name="CODE_UE", referencedColumnName="CODE_UE", insertable=false, updatable=false)
-		})
-	private UniteEnseignement uniteEnseignement;
+	@Column(name="NO_ENSEIGNANT")
+	private BigDecimal noEnseignant;
 
 	public ElementConstitutif() {
 	}
@@ -95,20 +85,12 @@ public class ElementConstitutif implements Serializable {
 		this.nbhTp = nbhTp;
 	}
 
-	public Enseignant getEnseignant() {
-		return this.enseignant;
+	public BigDecimal getNoEnseignant() {
+		return this.noEnseignant;
 	}
 
-	public void setEnseignant(Enseignant enseignant) {
-		this.enseignant = enseignant;
-	}
-
-	public UniteEnseignement getUniteEnseignement() {
-		return this.uniteEnseignement;
-	}
-
-	public void setUniteEnseignement(UniteEnseignement uniteEnseignement) {
-		this.uniteEnseignement = uniteEnseignement;
+	public void setNoEnseignant(BigDecimal noEnseignant) {
+		this.noEnseignant = noEnseignant;
 	}
 
 }

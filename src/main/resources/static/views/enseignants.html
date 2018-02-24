@@ -1,0 +1,140 @@
+<br>
+<br>
+<h1>Gestion des Enseignants</h1>
+
+
+<a href="#ajouterEnseignant" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-plus"></span> Ajouter
+        </a>
+
+<div class="container">
+	<div class="row">
+		
+        
+        <div class="col-md-12">
+
+        <div class="table-responsive">
+
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                   
+               
+                   <th>No Enseignant</th>
+                    <th>Nom </th>  
+                    <th>Prénom</th>     
+                    <th> Détails </th>  
+                       <th>Modifier</th>
+                          <th>Supprimer</th>
+                   </thead>
+    <tbody>
+    
+    
+    
+    	<tr ng-repeat=" enseignant in enseignants ">
+		
+		<td> {{ enseignant.noEnseignant }} </td>
+		<td> {{ enseignant.nom}} </td>
+		<td> {{ enseignant.prenom}} </td>
+
+			<td ><a href="#detailEnseignant/{{enseignant.noEnseignant}}" ng-click="detail(enseignant.noEnseignant)" class="btn-lg" ng-model="myVar"  ><span class="glyphicon glyphicon-exclamation-sign icon-success icon-size"></span></a> </td>
+		<td ><a href="#modifierEnseignant/{{enseignant.noEnseignant}}" ng-controller="modifierFormationController" ng-click="recupererLaFormation(formation.codeFormation)" class="btn btn-info btn-lg" data-placement="top" data-toggle="tooltip" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a> </td>	
+	 <td><p ng-click="supprimer(enseignant.noEnseignant)" data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></p></td>
+	</tr>
+    </tbody>
+        
+</table>
+
+
+            
+        </div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+      </div>
+          <div class="modal-body">
+          <div class="form-group">
+        <input class="form-control " type="text" placeholder="Mohsin">
+        </div>
+        <div class="form-group">
+        
+        <input class="form-control " type="text" placeholder="Irshad">
+        </div>
+        <div class="form-group">
+        <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+    
+        
+        </div>
+      </div>
+          <div class="modal-footer ">
+        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+      </div>
+        </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+    
+    
+    
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+      </div>
+          <div class="modal-body">
+       
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+       
+      </div>
+        <div class="modal-footer ">
+        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+      </div>
+        </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+
+<div>
+
+<table class="table" ng-show="IsVisible">
+	<tr>
+		<th>Code Formation</th>
+		<th>Debut Accreditation</th>
+		<th>Diplome</th>
+		<th>Double Diplome</th>
+		<th>Fin Accreditation </th>
+		<th>NO Anne  </th>
+		<th>Nom Formation</th>
+		
+	</tr>
+	
+	<tr ng-repeat=" df in detailFormation " >
+		
+		<td> {{ df.codeFormation}} </td>
+		<td> {{ df.debutAccreditation}} </td>
+		<td> {{ df.diplome }} </td>
+		<td> {{ df.doubleDiplome }} </td>
+		<td> {{ df.finAccreditation }} </td>
+		<td> {{ df.n0Annee }} </td>
+		<td> {{ df.nomFormation }} </td>				
+	</tr>
+	
+
+
+</table>
+
+
+

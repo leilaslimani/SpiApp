@@ -1,0 +1,79 @@
+<br>
+<h4>Modification de la formation {{detailFormation.nomFormation}}</h4>
+<br>
+<div class="cards">
+
+<div class="form">
+
+	<div class="input-group">
+		<label>
+			Code Formation <input type="text" class="form-control" ng-model="formation.codeFormation" ng-disabled="formation.codeFormation">
+		</label>
+	</div>
+	<div class="input-group">
+		<label>
+			Formation : <input type="text"  class="form-control" ng-model="formation.nomFormation">
+		</label>
+	</div>
+	<fieldset class="form-group">
+   <label for="exampleTextarea">Diplome :</label>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="master" value="L" checked ng-model="diplome">
+      Licence
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="licence" value="M" ng-model="diplome">
+       Master
+      </label>
+    </div>
+     <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="doctorat" value="D" ng-model="diplome">
+       Doctorat
+      </label>
+    </div>
+  </fieldset>
+	<div class="input-group">
+		<label>
+			no Année : <select  class="form-control" ng-model="formation.n0Annee">
+			      <option value="1"> 1</option>
+			      <option value="2"> 2 </option>
+			       </select>
+		</label>
+	</div>
+<fieldset class="form-group">
+   <label for="exampleTextarea">Douple Diplome :</label>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="oui" value="O" checked ng-model="doubleDiplome">
+        Oui
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="non" value="N" ng-model="doubleDiplome">
+        Non
+      </label>
+    </div>
+  </fieldset>
+		<div class="input-group">
+		<label>
+			Fin Accréditation : <input type="date"  class="form-control" ng-model="formation.finAccreditation">
+		</label>
+	</div>
+		<div class="input-group">
+		<label>
+			Début Accréditation : <input type="date"  class="form-control" ng-model="formation.debutAccreditation">
+		</label>
+	</div>
+	
+	<div class="input-group">
+		<button ng-click="updatedata()" >Enregistrer</button>
+		
+	</div>
+	
+</div>
+</div>

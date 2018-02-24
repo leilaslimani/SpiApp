@@ -38,11 +38,12 @@ public class Formation implements Serializable {
 	@Column(name="NOM_FORMATION")
 	private String nomFormation;
 
+
 	public Formation() {
 	}
-	
-	public Formation(String codeFormation, String diplome, String doubleDiplome,
-			BigDecimal n0Annee, String nomFormation) {
+
+	public Formation(String codeFormation, String diplome, String doubleDiplome, BigDecimal n0Annee,
+			String nomFormation) {
 		super();
 		this.codeFormation = codeFormation;
 		this.diplome = diplome;

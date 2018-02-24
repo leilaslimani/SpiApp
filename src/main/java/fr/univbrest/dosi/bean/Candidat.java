@@ -21,6 +21,12 @@ public class Candidat implements Serializable {
 
 	private String adresse;
 
+	@Column(name="ANNEE_UNIVERSITAIRE")
+	private String anneeUniversitaire;
+
+	@Column(name="CODE_FORMATION")
+	private String codeFormation;
+
 	@Column(name="CODE_POSTAL")
 	private String codePostal;
 
@@ -65,14 +71,15 @@ public class Candidat implements Serializable {
 	private String universiteOrigine;
 
 	private String ville;
+	public Candidat(String noCandidat, String email, String nom, String prenom, String universiteOrigine) {
+		super();
+		this.noCandidat = noCandidat;
+		this.email = email;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.universiteOrigine = universiteOrigine;
+	}
 
-	//bi-directional many-to-one association to Promotion
-	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="ANNEE_UNIVERSITAIRE", referencedColumnName="ANNEE_UNIVERSITAIRE"),
-		@JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION")
-		})
-	private Promotion promotion;
 
 	public Candidat() {
 	}
@@ -91,6 +98,22 @@ public class Candidat implements Serializable {
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+
+	public String getAnneeUniversitaire() {
+		return this.anneeUniversitaire;
+	}
+
+	public void setAnneeUniversitaire(String anneeUniversitaire) {
+		this.anneeUniversitaire = anneeUniversitaire;
+	}
+
+	public String getCodeFormation() {
+		return this.codeFormation;
+	}
+
+	public void setCodeFormation(String codeFormation) {
+		this.codeFormation = codeFormation;
 	}
 
 	public String getCodePostal() {
@@ -227,14 +250,6 @@ public class Candidat implements Serializable {
 
 	public void setVille(String ville) {
 		this.ville = ville;
-	}
-
-	public Promotion getPromotion() {
-		return this.promotion;
-	}
-
-	public void setPromotion(Promotion promotion) {
-		this.promotion = promotion;
 	}
 
 }
